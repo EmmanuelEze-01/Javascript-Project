@@ -331,6 +331,7 @@ header p {
 
 .receipe-hero .right-area {
   margin-right: 0;
+  align-items: start;
 }
 
 .receipe-hero .left-area h2 {
@@ -348,12 +349,27 @@ header p {
   flex-wrap: wrap;
 }
 
+.recepie-card-container div span:first-child{
+  font-size: var(--small-size);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.recepie-card-container div span:last-child{
+  font-size: var(--body-size);
+  font-weight: 700;
+  color: var(--text);
+}
+
+
+
 .receipe-hero .left-area .recepie-card-container div {
   display: flex;
   flex-direction: column;
   background-color: var(--card-bg);
   padding: 10px 15px;
   border-radius: 15px;
+  flex: 1 1 200px;
 }
 
 .receipe-hero .left-area .extra-info {
@@ -368,13 +384,6 @@ header p {
   text-align: left;
   align-items: start;
 }
-/* .receipe-hero .left-area .extra-info div ul li {
-  list-style: decimal;
-}
-
-.receipe-hero .left-area .extra-info div ul li::marker {
-  color: var(--accent);
-} */
 
 .receipe-hero .left-area .extra-info div ul {
   list-style: none; /* Hide the default browser numbers */
@@ -387,6 +396,12 @@ header p {
   margin-bottom: 12px;
   display: flex;
   align-items: center; /* Vertically centers the marker with the text */
+}
+
+.receipe-hero .left-area h2{
+  font-size: var(--recipe-title-size);
+  font-weight: 800;
+  color: var(--text);
 }
 
 .receipe-hero .left-area .extra-info div ul li::before {
