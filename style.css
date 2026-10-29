@@ -1,0 +1,758 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Homepage */
+  --logo-size: 20px;
+  --nav-size: 13px;
+
+  --hero-title-size: 34px;
+  --hero-description-size: 15px;
+  --search-size: 13px;
+  --tag-size: 11px;
+
+  --section-title-size: 21px;
+  --section-description-size: 13px;
+  --card-title-size: 15px;
+  --body-size: 13px;
+  --small-size: 11px;
+
+  --recipe-title-size: 30px;
+  --recipe-description-size: 15px;
+  --section-heading-size: 18px;
+  --ingredient-size: 13px;
+  --instruction-size: 13px;
+  --step-heading-size: 15px;
+  --nutrition-value-size: 14px;
+
+  --newsletter-title-size: 16px;
+  --newsletter-description-size: 12px;
+  --footer-heading-size: 12px;
+  --footer-link-size: 12px;
+  --copyright-size: 10px;
+
+  /* Recipe detail page */
+  --recipe-title-size: 36px;
+  --recipe-description-size: 16px;
+  --section-heading-size: 20px;
+  --ingredient-size: 14px;
+  --instruction-size: 14px;
+}
+
+body {
+  --bg: #0b0d17;
+  --navbar-bg: #151827;
+  --hero-bg: #0b0d17;
+  --card-bg: #151827;
+  --card-secondary: #202438;
+  --border: #30334d;
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --text: #f8fafc;
+  --text-muted: #b8bed1;
+  --tag-bg: #292044;
+  --tag-text: #c4b5fd;
+
+  background: var(--bg);
+  color: var(--text-muted);
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: var(--navbar-bg); */
+  border-bottom: 2px solid var(--border);
+  height: 80px;
+  padding: 30px 30px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+header img {
+  width: 60px;
+  height: 100%;
+}
+
+header div span {
+  font-size: var(--logo-size);
+  font-weight: 800;
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+header ul li {
+  list-style: none;
+  cursor: pointer;
+  font-size: var(--nav-size);
+  font-weight: 500;
+}
+
+header ul li:hover {
+  color: var(--text);
+  font-weight: 600;
+}
+
+header p {
+  width: 40px;
+  height: 40px;
+  background: var(--navbar-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--nav-size);
+}
+
+.hero {
+  width: 100%;
+  padding: 0 30px;
+  /* background: var(--card-secondary); */
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.hero .left-area {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+}
+
+.left-area .eyebrow {
+  background-color: var(--border);
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: var(--small-size);
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.left-area h2,
+.left-area h3 {
+  font-size: var(--hero-title-size);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.left-area h3 {
+  color: var(--accent);
+}
+
+.left-area p {
+  font-size: var(--hero-description-size);
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 37ch;
+}
+
+.left-area form {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  background-color: --;
+  align-items: center;
+}
+
+.left-area form span {
+  display: flex;
+  width: auto;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+  width: 400px;
+  justify-content: space-evenly;
+  background: var(--hero-bg);
+  border-radius: 999px;
+  border: 2px solid var(--border);
+}
+
+.left-area form span i {
+  font-size: var(--hero-description-size);
+}
+
+.left-area form span input {
+  background: transparent;
+  border-radius: 999px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding-left: 10px;
+  color: var(--text);
+  font-size: var(--search-size);
+  font-weight: 400;
+}
+
+.left-area form span input:focus {
+  border-color: transparent;
+  outline: none;
+}
+
+.left-area form span input::placeholder {
+  color: var(--text-muted);
+  font-size: var(--search-size);
+  font-weight: 400;
+}
+
+.left-area form span button {
+  font-size: var(--search-size);
+  color: var(--text);
+  font-weight: 600;
+  background: var(--accent);
+  border-radius: 999px;
+  height: 100%;
+  width: 130px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.left-area form input {
+  border-left: none;
+  border-right: none;
+}
+
+.left-area div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.left-area div span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.left-area div button {
+  font-weight: 500;
+  font-size: var(--body-size);
+  color: var(--tag-text);
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: var(--border);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.hero .right-area {
+  /* width: 50%; */
+  display: flex;
+  padding: 30px;
+  margin-right: 100px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.hero .right-area img {
+  width: 300px;
+  height: 300px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 40px;
+}
+
+.content .content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-header span {
+  font-size: var(--section-title-size);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.content-header a {
+  font-size: var(--footer-link-size);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.content .card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card-container .card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  padding: 10px;
+}
+
+.card span:first-child {
+  color: var(--accent-hover);
+  font-size: var(--body-size);
+  font-weight: 900;
+  width: fit-content;
+  padding: 5px 15px;
+  border-radius: 999px;
+  position: absolute;
+  color: var(--tag-text);
+  background: var(--accent);
+  left: 13px;
+  top: 15px;
+}
+
+.th {
+  display: none;
+  color: var(--accent-hover);
+  font-size: var(--body-size);
+  font-weight: 900;
+  width: fit-content;
+  padding: 5px 15px;
+  border-radius: 999px;
+  color: var(--tag-text);
+  background: var(--accent);
+}
+
+.card h2 {
+  font-size: var(--card-title-size);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.info div i,
+.info div span {
+  font-size: var(--body-size);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+  border-radius: 20px;
+}
+.card .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px;
+  padding-bottom: 20px;
+  border-top: 2px solid var(--border);
+}
+
+footer .top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.top div {
+  display: flex;
+  flex-direction: column;
+  /* background: red; */
+}
+
+.footer-logo-area {
+  gap: 10px;
+  justify-content: space-between;
+}
+.footer-logo-area div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer-logo-area div:first-child {
+  gap: 10px;
+}
+
+.footer-logo-area div:first-child img {
+  width: 70px;
+  height: 70px;
+}
+
+.footer-logo-area div:first-child span {
+  font-size: var(--logo-size);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.footer-logo-area p {
+  font-weight: var(--newsletter-description-size);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.footer-logo-area .social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-icons span {
+  width: 30px;
+  height: 30px;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.social-icons i {
+  font-size: inherit;
+  color: var(--text);
+}
+
+.foot-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.foot-links span {
+  font-size: var(--footer-heading-size);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.foot-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.foot-links ul li {
+  font-size: var(--footer-link-size);
+  font-weight: 400;
+  list-style: none;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+footer .newsletter {
+  gap: 20px;
+}
+
+.newsletter span {
+  font-size: var(--newsletter-title-size);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.newsletter p {
+  font-size: var(--newsletter-description-size);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.newsletter form span {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 40px;
+  gap: 10px;
+  padding-left: 10px;
+  border-radius: 999px;
+  background-color: var(--card-secondary);
+  align-items: stretch;
+  border: 2px solid var(--border);
+}
+
+.newsletter form span input {
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: var(--newsletter-description-size);
+  color: var(--text);
+  font-weight: 400;
+}
+
+.newsletter form span input {
+  font-size: var(--newsletter-description-size);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.newsletter form span p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter form span p i {
+  font-size: var(--newsletter-description-size);
+  font-weight: 600;
+}
+
+.newsletter form span button {
+  border-radius: 999px;
+  width: 100px;
+  border: none;
+  font-size: var(--footer-link-size);
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  background-color: var(--accent);
+}
+
+footer .bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+footer .bottom,
+.bottom ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom ul {
+  gap: 20px;
+}
+
+.bottom span {
+  font-size: var(--copyright-size);
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.bottom ul li {
+  font-size: var(--copyright-size);
+  font-weight: 500;
+  color: var(--text-muted);
+  list-style: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --logo-size: 20px;
+    --nav-size: 13px;
+    --hero-title-size: 34px;
+    --hero-description-size: 15px;
+    --section-title-size: 21px;
+    --card-title-size: 15px;
+    --body-size: 13px;
+    --small-size: 11px;
+
+    --recipe-title-size: 30px;
+    --recipe-description-size: 15px;
+    --section-heading-size: 18px;
+    --ingredient-size: 13px;
+    --instruction-size: 13px;
+  }
+
+  footer .top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 20px;
+  }
+
+  .content .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hero .right-area {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --logo-size: 18px;
+    --nav-size: 13px;
+
+    --hero-title-size: 30px;
+    --hero-description-size: 14px;
+    --search-size: 13px;
+    --tag-size: 10px;
+
+    --section-title-size: 19px;
+    --section-description-size: 12px;
+    --card-title-size: 14px;
+    --body-size: 13px;
+    --small-size: 10px;
+
+    --recipe-title-size: 26px;
+    --recipe-description-size: 14px;
+    --section-heading-size: 17px;
+    --ingredient-size: 13px;
+    --instruction-size: 13px;
+    --step-heading-size: 14px;
+    --nutrition-value-size: 13px;
+
+    --newsletter-title-size: 15px;
+    --newsletter-description-size: 12px;
+    --footer-heading-size: 12px;
+    --footer-link-size: 11px;
+    --copyright-size: 10px;
+  }
+
+  footer {
+    padding: 20px;
+  }
+  footer .top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 30px;
+    padding-bottom: 20px;
+  }
+
+  .footer-logo-area {
+    grid-column: 1/3;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  footer .bottom,
+  .bottom ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hero .right-area {
+    display: none;
+  }
+
+  .content .card-container {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 20px;
+  }
+
+  .card-container .card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: relative;
+    padding: 5px 10px;
+    padding-right: 0;
+    height: 100px;
+    width: 100%;
+  }
+
+  .card span:first-child {
+    display: none;
+  }
+
+  .card .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* .card .info div {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+  } */
+
+  .card .gen-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  .th {
+    display: flex;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .card img {
+    width: 100px;
+    height: 100%;
+  }
+
+  header ul {
+    display: none;
+  }
+
+  footer .newsletter {
+    grid-column: 1/3;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 0 20px;
+  }
+
+  .hero .left-area {
+    width: 100%;
+  }
+
+  .lucide {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.5px;
+  }
+}

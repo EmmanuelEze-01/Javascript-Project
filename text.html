@@ -1,0 +1,586 @@
+<!doctype html>
+<!-- Tells the browser this document uses modern HTML5. -->
+
+<html lang="en">
+  <!-- Starts the HTML document and declares English as its language. -->
+
+  <head>
+    <!-- The head contains page information and styling, not the main visible content. -->
+
+    <meta charset="UTF-8" />
+    <!-- Allows the page to display a wide range of text characters correctly. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the layout adapt to the width of phones, tablets and computers. -->
+
+    <title>Nexora Search</title>
+    <!-- Sets the text displayed in the browser tab. -->
+
+    <style>
+      /* Starts the CSS section, where we design the page. */
+
+      /* Selects every element on the page. */
+      * {
+        box-sizing: border-box; /* Includes padding and borders within an element's declared width and height. */
+      }
+
+      /* Styles the overall page. */
+      body {
+        margin: 0; /* Removes the browser's default outer spacing. */
+        min-height: 100vh; /* Makes the page at least as tall as the screen. */
+        background: #0b0d12; /* Sets the dark background color. */
+        color: #f5f5f5; /* Sets the default text color to near-white. */
+        font-family:
+          Arial, sans-serif; /* Chooses Arial, with a generic sans-serif fallback. */
+        display: flex; /* Enables flexible layout for the body. */
+        justify-content: center; /* Centers the main container horizontally. */
+        align-items: flex-start; /* Positions the container at the top vertically. */
+      }
+
+      /* Styles the main content wrapper. */
+      .container {
+        width: 100%; /* Lets the container use the available width. */
+        max-width: 720px; /* Stops the container becoming wider than 720 pixels. */
+        padding: 100px 22px 50px; /* Adds 100px top, 22px horizontal and 50px bottom spacing. */
+      }
+
+      /* Styles the logo. */
+      .logo {
+        text-align: center; /* Centers the logo text. */
+        font-size: 38px; /* Sets the logo text size. */
+        font-weight: 800; /* Makes the logo extra bold. */
+        letter-spacing: -1.5px; /* Brings the letters closer together. */
+        margin-bottom: 12px; /* Adds space below the logo. */
+      }
+
+      /* Styles the dot inside the logo. */
+      .logo span {
+        color: #8b7cff; /* Gives the dot a purple color. */
+      }
+
+      /* Styles the subtitle under the logo. */
+      .subtitle {
+        text-align: center; /* Centers the subtitle. */
+        color: #9297a5; /* Gives the subtitle a muted gray color. */
+        margin-bottom: 36px; /* Adds space between the subtitle and search bar. */
+        font-size: 14px; /* Sets the subtitle text size. */
+      }
+
+      /* Makes the search box a positioning reference for the dropdown. */
+      .search-box {
+        position: relative; /* Allows the suggestions panel to be positioned relative to this box. */
+      }
+
+      /* Styles the search form itself. */
+      .search-bar {
+        display: flex; /* Places the icon, input and button in one row. */
+        align-items: center; /* Vertically centers those items. */
+        gap: 12px; /* Adds 12px between the items. */
+        background: #151821; /* Sets the search bar background. */
+        border: 1px solid #292d3a; /* Adds a subtle border. */
+        border-radius: 16px; /* Rounds the corners. */
+        padding: 6px 7px 6px 17px; /* Adds internal space around the controls. */
+        transition: border-color 0.2s; /* Animates border-color changes over 0.2 seconds. */
+      }
+
+      /* Changes the search bar border while the input has focus. */
+      .search-bar:focus-within {
+        border-color: #8b7cff; /* Highlights the search bar in purple. */
+      }
+
+      /* Styles the search symbol. */
+      .search-icon {
+        color: #9297a5; /* Makes the icon gray. */
+        font-size: 19px; /* Sets the icon's text size. */
+      }
+
+      /* Styles the user's text input. */
+      #searchInput {
+        flex: 1; /* Lets the input take up the available horizontal space. */
+        min-width: 0; /* Allows the input to shrink on narrow screens. */
+        padding: 13px 0; /* Adds vertical space inside the input. */
+        background: transparent; /* Makes the input background transparent. */
+        border: none; /* Removes the default input border. */
+        outline: none; /* Removes the default focus outline. */
+        color: #ffffff; /* Makes typed text white. */
+        font-size: 15px; /* Sets the input text size. */
+      }
+
+      /* Styles the placeholder text. */
+      #searchInput::placeholder {
+        color: #737989; /* Makes the placeholder gray. */
+      }
+
+      /* Styles the Search button. */
+      #searchButton {
+        border: none; /* Removes the default button border. */
+        border-radius: 11px; /* Rounds the button corners. */
+        padding: 12px 18px; /* Adds space inside the button. */
+        background: #8b7cff; /* Sets the purple background. */
+        color: white; /* Makes the button text white. */
+        font-weight: 700; /* Makes the button text bold. */
+        cursor: pointer; /* Displays a pointer cursor when hovered. */
+      }
+
+      /* Changes the button background when the pointer hovers over it. */
+      #searchButton:hover {
+        background: #7665f0; /* Makes the purple slightly darker. */
+      }
+
+      /* Styles the suggestion dropdown before it is opened. */
+      .suggestions {
+        display: none; /* Hides the dropdown initially. */
+        position: absolute; /* Removes it from the normal document flow. */
+        top: calc(100% + 9px); /* Places it 9px below the search box. */
+        left: 0; /* Aligns it with the left edge of the search box. */
+        right: 0; /* Aligns its right edge with the search box. */
+        z-index: 10; /* Places it above nearby page content. */
+        background: #151821; /* Sets the dropdown background. */
+        border: 1px solid #292d3a; /* Adds a subtle border. */
+        border-radius: 14px; /* Rounds the dropdown corners. */
+        padding: 7px; /* Adds space inside the dropdown. */
+        box-shadow: 0 15px 40px #00000055; /* Adds a soft shadow beneath it. */
+      }
+
+      /* Makes the dropdown visible when JavaScript adds the "show" class. */
+      .suggestions.show {
+        display: block; /* Changes the dropdown from hidden to visible. */
+      }
+
+      /* Styles every suggestion button. */
+      .suggestion {
+        display: flex; /* Places its icon and label in a row. */
+        align-items: center; /* Vertically centers the icon and label. */
+        gap: 12px; /* Adds space between the icon and text. */
+        width: 100%; /* Makes the suggestion fill the dropdown width. */
+        padding: 13px; /* Adds space inside the suggestion. */
+        border: none; /* Removes the button border. */
+        border-radius: 9px; /* Rounds its corners. */
+        background: transparent; /* Removes the default background. */
+        color: #e8e9ef; /* Sets the text color. */
+        text-align: left; /* Aligns text to the left. */
+        font-size: 14px; /* Sets the text size. */
+        cursor: pointer; /* Shows a pointer cursor. */
+      }
+
+      /* Styles a suggestion when hovered. */
+      .suggestion:hover {
+        background: #232735; /* Adds a lighter background to indicate hover. */
+      }
+
+      /* Colors the icon inside each suggestion. */
+      .suggestion-icon {
+        color: #8b7cff; /* Makes the suggestion icon purple. */
+      }
+
+      /* Styles the heading above the results. */
+      .section-label {
+        margin: 32px 0 13px; /* Adds space above and below the heading. */
+        color: #9297a5; /* Uses muted gray text. */
+        font-size: 12px; /* Makes the heading relatively small. */
+        text-transform: uppercase; /* Converts displayed letters to uppercase. */
+        letter-spacing: 1.5px; /* Adds spacing between letters. */
+      }
+
+      /* Arranges the result cards. */
+      #results {
+        display: grid; /* Uses CSS Grid to arrange the results. */
+        gap: 12px; /* Adds space between result cards. */
+      }
+
+      /* Styles each clickable result. */
+      .result-card {
+        display: block; /* Makes the entire card behave as a block. */
+        padding: 19px; /* Adds internal spacing. */
+        border: 1px solid #292d3a; /* Adds a subtle card border. */
+        border-radius: 14px; /* Rounds the card corners. */
+        background: #11141c; /* Sets the card background. */
+        color: inherit; /* Inherits the surrounding text color. */
+        text-decoration: none; /* Removes the default link underline. */
+        transition:
+          border-color 0.2s,
+          transform 0.2s; /* Animates border and movement changes. */
+      }
+
+      /* Styles a result card when hovered. */
+      .result-card:hover {
+        border-color: #8b7cff; /* Highlights the card border. */
+        transform: translateY(-2px); /* Moves the card upward by 2px. */
+      }
+
+      /* Styles the result title. */
+      .result-card h2 {
+        margin: 0 0 8px; /* Removes the top margin and adds 8px below. */
+        font-size: 17px; /* Sets the title size. */
+      }
+
+      /* Styles the result description. */
+      .result-card p {
+        margin: 0; /* Removes default paragraph margins. */
+        color: #9297a5; /* Makes the description gray. */
+        font-size: 14px; /* Sets the description text size. */
+        line-height: 1.6; /* Makes lines easier to read. */
+      }
+
+      /* Styles the "Open page" label. */
+      .result-card .open-label {
+        display: inline-block; /* Allows spacing around the label. */
+        margin-top: 13px; /* Adds space above the label. */
+        color: #a79cff; /* Makes the label light purple. */
+        font-size: 12px; /* Makes the label small. */
+      }
+
+      /* Styles the no-results message. */
+      .empty {
+        padding: 24px; /* Adds space inside the message. */
+        border: 1px dashed #353949; /* Creates a dashed border. */
+        border-radius: 14px; /* Rounds its corners. */
+        color: #9297a5; /* Uses gray text. */
+        text-align: center; /* Centers the message. */
+        line-height: 1.7; /* Improves line spacing. */
+      }
+
+      /* Styles the footer. */
+      .footer {
+        margin-top: 45px; /* Adds space above the footer. */
+        color: #626878; /* Makes the footer text dim gray. */
+        text-align: center; /* Centers the footer. */
+        font-size: 12px; /* Sets a small font size. */
+      }
+
+      /* Applies these changes on screens 480px wide or narrower. */
+      @media (max-width: 480px) {
+        .container {
+          padding: 75px 16px 35px; /* Reduces the spacing for mobile screens. */
+        }
+
+        .logo {
+          font-size: 32px; /* Makes the logo smaller on mobile. */
+        }
+
+        #searchButton {
+          padding: 12px; /* Reduces button padding to fit narrower screens. */
+        }
+      }
+    </style>
+    <!-- Ends the CSS section. -->
+  </head>
+  <!-- Ends the head section. -->
+
+  <body>
+    <!-- The body contains everything visible on the webpage. -->
+
+    <main class="container">
+      <!-- Creates the main content area and gives it the class "container". -->
+
+      <div class="logo">Nexora<span>.</span></div>
+      <!-- Displays the logo text; the dot can have a different color. -->
+
+      <p class="subtitle">
+        <!-- Starts a paragraph with the class "subtitle". -->
+        Search for something. Discover something.
+        <!-- The text displayed underneath the logo. -->
+      </p>
+      <!-- Ends the subtitle paragraph. -->
+
+      <div class="search-box">
+        <!-- Groups the search bar and its suggestion dropdown together. -->
+
+        <form class="search-bar" id="searchForm">
+          <!-- Creates the search form and gives JavaScript a unique ID to find it. -->
+
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <!-- Displays a decorative search symbol. -->
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search for anything..."
+            autocomplete="off"
+            aria-label="Search custom words"
+            aria-controls="suggestions"
+          />
+          <!-- Creates the input where users type; the attributes configure its behavior and accessibility. -->
+
+          <button id="searchButton" type="submit">
+            <!-- Creates a button that submits the search form. -->
+            Search
+            <!-- The text displayed on the button. -->
+          </button>
+          <!-- Ends the search button. -->
+        </form>
+        <!-- Ends the search form. -->
+
+        <div class="suggestions" id="suggestions" role="listbox"></div>
+        <!-- Creates an initially empty container where JavaScript inserts suggestions. -->
+      </div>
+      <!-- Ends the group containing the search form and suggestions. -->
+
+      <p class="section-label" id="resultsHeading">
+        <!-- Creates a heading above the results; JavaScript can change its text. -->
+        Explore everything
+        <!-- The initial heading shown before the user searches. -->
+      </p>
+      <!-- Ends the results heading. -->
+
+      <div id="results" aria-live="polite"></div>
+      <!-- Creates an empty area where JavaScript displays the search results. -->
+
+      <div class="footer">
+        <!-- Starts the footer at the bottom of the page. -->
+        Built with HTML, CSS and JavaScript.
+        <!-- Displays a small footer message. -->
+      </div>
+      <!-- Ends the footer. -->
+    </main>
+    <!-- Ends the main content area. -->
+
+    <script>
+      // Starts the JavaScript section, which controls how the search works.
+
+      /* Creates an array containing all searchable items. */
+      const searchItems = [
+        /* Starts the first object in the array. */
+        {
+          name: "Software Engineering", // The word or title users can search for.
+          description:
+            "Explore software engineering, programming and building software systems.", // The text displayed in the result.
+          url: "software-engineering.html", // The HTML page opened when the result is clicked.
+        }, // Ends the first object.
+
+        /* Starts the second object. */
+        {
+          name: "Web Development", // The second searchable title.
+          description:
+            "Discover websites, frontend development and backend technologies.", // The second result's description.
+          url: "web-development.html", // The second result's destination.
+        }, // Ends the second object.
+
+        /* Starts the third object. */
+        {
+          name: "JavaScript", // The third searchable title.
+          description:
+            "Learn about JavaScript and how it makes websites interactive.", // The third result's description.
+          url: "javascript.html", // The third result's destination.
+        },
+        {
+          name: "Soca", //so The third searchable title.
+          description:
+            "Learn about JavaScript and how it makes websites interactive.", // The third result's description.
+          url: "javascript.html", // The third result's destination.
+        }, // Ends the third object.
+      ]; // Ends the array of searchable items.
+
+      /* Finds the search input in the HTML and stores it in a variable. */
+      const input = document.getElementById("searchInput");
+
+      /* Finds the search form. */
+      const form = document.getElementById("searchForm");
+
+      /* Finds the dropdown where suggestions will appear. */
+      const suggestions = document.getElementById("suggestions");
+
+      /* Finds the container where search results will appear. */
+      const results = document.getElementById("results");
+
+      /* Finds the heading above the results. */
+      const heading = document.getElementById("resultsHeading");
+
+      /* Defines a function that searches for matching titles. */
+      function findMatches(query) {
+        /* Removes surrounding spaces and converts the search to lowercase. */
+        const term = query.trim().toLowerCase();
+
+        /* If the input is empty, return every item. */
+        if (!term) {
+          return searchItems;
+        }
+
+        /* Filters the array and keeps titles that START WITH the search text. */
+        return searchItems.filter((item) =>
+          item.name.toLowerCase().startsWith(term),
+        );
+
+        /* "soft" matches "Software Engineering".
+        "script" does not match "JavaScript".
+        Matching is case-insensitive. */
+      }
+
+      /* Defines the function that displays autocomplete suggestions. */
+      function showSuggestions() {
+        /* Gets the matching items for the current input. */
+        const matches = findMatches(input.value);
+
+        /* Clears suggestions from the previous search. */
+        suggestions.innerHTML = "";
+
+        /* Checks whether any items matched. */
+        if (matches.length === 0) {
+          /* Hides the dropdown when nothing matches. */
+          suggestions.classList.remove("show");
+
+          /* Stops this function here. */
+          return;
+        }
+
+        /* Loops through every matching item. */
+        matches.forEach((item) => {
+          /* Creates a new HTML button for this suggestion. */
+          const button = document.createElement("button");
+
+          /* Makes the new button a normal button, not a form submit button. */
+          button.type = "button";
+
+          /* Adds the CSS class used to style suggestions. */
+          button.className = "suggestion";
+
+          /* Identifies this button as an option for assistive technology. */
+          button.setAttribute("role", "option");
+
+          /* Creates a span to hold the search icon. */
+          const icon = document.createElement("span");
+
+          /* Gives the icon span its CSS class. */
+          icon.className = "suggestion-icon";
+
+          /* Adds the icon character as text. */
+          icon.textContent = "⌕";
+
+          /* Creates another span to hold the item's name. */
+          const label = document.createElement("span");
+
+          /* Inserts the item's name as text. */
+          label.textContent = item.name;
+
+          /* Adds the icon and label inside the button. */
+          button.append(icon, label);
+
+          /* Defines what happens when this suggestion is clicked. */
+          button.addEventListener("click", () => {
+            /* Places the selected item's name inside the search bar. */
+            input.value = item.name;
+
+            /* Closes the suggestions dropdown. */
+            suggestions.classList.remove("show");
+
+            /* Displays the results matching the selected item's name. */
+            displayResults(item.name);
+          });
+
+          /* Adds this button to the suggestions dropdown. */
+          suggestions.appendChild(button);
+        }); // Ends the loop through matching items.
+
+        /* Adds the "show" class, making the dropdown visible. */
+        suggestions.classList.add("show");
+      } // Ends the showSuggestions function.
+
+      /* Defines the function that displays the search results. */
+      function displayResults(query) {
+        /* Gets all items matching the submitted search. */
+        const matches = findMatches(query);
+
+        /* Hides the suggestions dropdown. */
+        suggestions.classList.remove("show");
+
+        /* Clears the previous search results. */
+        results.innerHTML = "";
+
+        /* Changes the heading depending on whether a search was entered. */
+        heading.textContent = query.trim()
+          ? "Search results"
+          : "Explore everything";
+
+        /* Checks whether the search returned zero results. */
+        if (matches.length === 0) {
+          /* Creates an HTML element for the no-results message. */
+          const message = document.createElement("div");
+
+          /* Applies the CSS styling for an empty-results message. */
+          message.className = "empty";
+
+          /* Displays the search text inside a friendly message. */
+          message.textContent = `No results found for "${query}". Try another word.`;
+
+          /* Adds the message to the results container. */
+          results.appendChild(message);
+
+          /* Stops here because there are no results to display. */
+          return;
+        }
+
+        /* Loops through every matching item. */
+        matches.forEach((item) => {
+          /* Creates a link element for the result card. */
+          const link = document.createElement("a");
+
+          /* Applies the result-card CSS styling. */
+          link.className = "result-card";
+
+          /* Sets the HTML page that this link will open. */
+          link.href = item.url;
+
+          /* Creates a heading for the result's name. */
+          const title = document.createElement("h2");
+
+          /* Inserts the item's name into that heading. */
+          title.textContent = item.name;
+
+          /* Creates a paragraph for the description. */
+          const description = document.createElement("p");
+
+          /* Inserts the item's description into the paragraph. */
+          description.textContent = item.description;
+
+          /* Creates a label that tells users the card opens a page. */
+          const openLabel = document.createElement("span");
+
+          /* Applies the CSS styling for the open-page label. */
+          openLabel.className = "open-label";
+
+          /* Sets the text displayed in that label. */
+          openLabel.textContent = "Open page →";
+
+          /* Places the title, description and label inside the link. */
+          link.append(title, description, openLabel);
+
+          /* Adds the complete clickable card to the results area. */
+          results.appendChild(link);
+        }); // Ends the loop through matching items.
+      } // Ends the displayResults function.
+
+      /* Runs showSuggestions whenever the search input receives focus. */
+      input.addEventListener("focus", showSuggestions);
+
+      /* Also runs showSuggestions when the user clicks the input. */
+      input.addEventListener("click", showSuggestions);
+
+      /* Updates suggestions whenever the user types or edits the input. */
+      input.addEventListener("input", showSuggestions);
+
+      /* Detects when the search form is submitted. */
+      form.addEventListener("submit", (event) => {
+        /* Stops the browser from reloading the page on form submission. */
+        event.preventDefault();
+
+        /* Displays the results matching the current input. */
+        displayResults(input.value);
+      }); // Ends the submit event handler.
+
+      /* Listens for clicks anywhere in the document. */
+      document.addEventListener("click", (event) => {
+        /* Checks whether the clicked element is outside the search box. */
+        if (!event.target.closest(".search-box")) {
+          /* Hides suggestions when the user clicks elsewhere. */
+          suggestions.classList.remove("show");
+        }
+      }); // Ends the document click handler.
+
+      /* Displays all items when the page first loads. */
+      displayResults("");
+    </script>
+    <!-- Ends the JavaScript section. -->
+  </body>
+  <!-- Ends the visible page content. -->
+</html>
+<!-- Ends the entire HTML document. -->

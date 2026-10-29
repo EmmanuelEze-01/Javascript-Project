@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<!-- Tells the browser to use HTML5. -->
+
+<html lang="en">
+<!-- Starts the document and declares its language. -->
+
+<head>
+  <!-- Starts the document's metadata section. -->
+
+  <meta charset="UTF-8">
+  <!-- Supports standard text characters. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the page responsive on phones and computers. -->
+
+  <title>Software Engineering | Nexora</title>
+  <!-- Sets the browser tab title. -->
+
+  <style>
+    /* Begins the CSS styling. */
+
+    * {
+      box-sizing: border-box; /* Includes padding and borders in element dimensions. */
+    }
+
+    body {
+      margin: 0; /* Removes the default body margin. */
+      min-height: 100vh; /* Makes the page at least as tall as the screen. */
+      background: #0b0d12; /* Sets the dark background. */
+      color: #f5f5f5; /* Sets the default text color. */
+      font-family: Arial, sans-serif; /* Sets the font. */
+      display: grid; /* Enables CSS Grid layout. */
+      place-items: center; /* Centers the content horizontally and vertically. */
+      padding: 24px; /* Adds space around the content. */
+    }
+
+    main {
+      width: 100%; /* Allows the content to fill its available width. */
+      max-width: 700px; /* Prevents the content from becoming too wide. */
+    }
+
+    .tag {
+      color: #a79cff; /* Colors the small label purple. */
+      font-size: 12px; /* Makes the label small. */
+      letter-spacing: 2px; /* Adds space between its letters. */
+      text-transform: uppercase; /* Displays the label in uppercase. */
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 60px); /* Adjusts the title size to the screen width, within the specified limits. */
+      letter-spacing: -2px; /* Brings title letters closer together. */
+      margin: 18px 0; /* Adds vertical space around the title. */
+    }
+
+    p {
+      color: #a2a7b5; /* Makes paragraphs gray. */
+      font-size: 16px; /* Sets the paragraph text size. */
+      line-height: 1.9; /* Adds comfortable spacing between text lines. */
+    }
+
+    .panel {
+      margin-top: 30px; /* Adds space above the information panel. */
+      padding: 24px; /* Adds space inside the panel. */
+      background: #151821; /* Sets the panel background. */
+      border: 1px solid #292d3a; /* Adds a subtle border. */
+      border-radius: 16px; /* Rounds the panel corners. */
+    }
+
+    a {
+      display: inline-block; /* Allows the link to have padding and margins. */
+      margin-top: 25px; /* Adds space above the link. */
+      padding: 13px 18px; /* Adds internal spacing. */
+      background: #8b7cff; /* Sets the purple button background. */
+      color: white; /* Makes the link text white. */
+      border-radius: 10px; /* Rounds the button corners. */
+      text-decoration: none; /* Removes the underline. */
+      font-weight: bold; /* Makes the text bold. */
+    }
+
+    a:hover {
+      background: #7665f0; /* Darkens the button when hovered. */
+    }
+
+  </style>
+  <!-- Ends the CSS styling. -->
+</head>
+<!-- Ends the head section. -->
+
+<body>
+  <!-- Starts the visible content. -->
+
+  <main>
+    <!-- Groups the main page content. -->
+
+    <div class="tag">Nexora / Explore</div>
+    <!-- Displays the small category label. -->
+
+    <h1>Software Engineering</h1>
+    <!-- Displays the main page heading. -->
+
+    <p>
+      Software engineering is the process of designing,
+      building, testing and maintaining software systems.
+      It combines programming, problem-solving and engineering
+      principles to create reliable applications.
+    </p>
+    <!-- Explains the subject to the visitor. -->
+
+    <section class="panel">
+      <!-- Creates a section with the panel styling. -->
+
+      <h2>What can you explore?</h2>
+      <!-- Displays the panel heading. -->
+
+      <p>Programming languages</p>
+      <!-- Displays the first topic. -->
+
+      <p>Web and mobile applications</p>
+      <!-- Displays the second topic. -->
+
+      <p>Software architecture and testing</p>
+      <!-- Displays the third topic. -->
+
+      <p>Databases and backend systems</p>
+      <!-- Displays the fourth topic. -->
+
+    </section>
+    <!-- Ends the information panel. -->
+
+    <a href="index.html">← Back to Search</a>
+    <!-- Creates a link that returns to the main search page. -->
+
+  </main>
+  <!-- Ends the main content. -->
+
+</body>
+<!-- Ends the visible page. -->
+
+</html>
+<!-- Ends the document. -->
