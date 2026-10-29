@@ -322,6 +322,131 @@ header p {
   padding: 10px;
 }
 
+.receipe-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0;
+}
+
+.receipe-hero .right-area {
+  margin-right: 0;
+}
+
+.receipe-hero .left-area h2 {
+  width: fit-content;
+}
+
+.receipe-hero .right-area img {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.receipe-hero .left-area .recepie-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.receipe-hero .left-area .recepie-card-container div {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.receipe-hero .left-area .extra-info {
+  display: flex;
+  flex-direction: row;
+  gap: 130px;
+}
+
+.receipe-hero .left-area .extra-info div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: start;
+}
+/* .receipe-hero .left-area .extra-info div ul li {
+  list-style: decimal;
+}
+
+.receipe-hero .left-area .extra-info div ul li::marker {
+  color: var(--accent);
+} */
+
+.receipe-hero .left-area .extra-info div ul {
+  list-style: none; /* Hide the default browser numbers */
+  counter-reset: my-counter; /* Initialize a custom counter */
+  padding-left: 0px;
+}
+
+.receipe-hero .left-area .extra-info div ul li {
+  counter-increment: my-counter; /* Increment the counter for each item */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center; /* Vertically centers the marker with the text */
+}
+
+.receipe-hero .left-area .extra-info div ul li::before {
+  content: counter(my-counter); /* Display the decimal number */
+  color: #ffffff; /* White text */
+  background-color: #6f42c1; /* Purple background */
+
+  /* Make it a perfect circle or square */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%; /* Remove this line if you want a square marker */
+
+  /* Spacing */
+  margin-right: 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.receipe-hero .left-area .extra-info div .ingr {
+  list-style: none; /* Hide the defa.ingrt browser numbers */
+  counter-reset: my-counter; /* Initialize a custom counter */
+  padding-left: 0px;
+}
+
+.receipe-hero .left-area .extra-info div .ingr li {
+  counter-increment: my-counter; /* Increment the counter for each item */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center; /* Vertically centers the marker with the text */
+}
+
+.receipe-hero .left-area .extra-info div .ingr li::before {
+  content: "✓"; /* Change this line */
+
+  color: #ffffff;
+  background-color: #6f42c1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+  /* Spacing */
+  margin-right: 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.gen-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .card span:first-child {
   color: var(--accent-hover);
   font-size: var(--body-size);
@@ -364,7 +489,7 @@ header p {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 10px;
 }
 .info div i,
 .info div span {
