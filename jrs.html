@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/icon.png" type="image/.png" />
+    <title>TastyNest — Your Home for Great Recipes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="index.html"></a>
+        <img src="images/icon.png" alt="The icon image" />
+        <a href="index.html" style="color: inherit;"><span>TastyNest</span></a>
+      </div>
+      <ul>
+        <li>Home</li>
+        <li>Recipes</li>
+        <li>Categories</li>
+        <li>About</li>
+      </ul>
+
+      <div>
+        <div id="theme-button-container">
+          <p>
+            <i class="fa-regular fa-moon" onclick="changetheme()"></i>
+          </p>
+          <!-- <p><i class="fa-solid fa-sun"></i><p> -->
+        </div>
+        <p><i class="fa-solid fa-user"></i></p>
+      </div>
+    </header>
+
+    <section class="hero receipe-hero">
+      <div class="right-area">
+        <img src="images/chad-montano-MqT0asuoIcU-unsplash.jpg" alt="" id="jrs-image"/>
+      </div>
+      <div class="left-area">
+        <!-- <span class="eyebrow">Your Home for Great Recipes</span> -->
+        <h2 id="jrs-n">Delicious Recipes for Every Moment</h2>
+        <!-- <p>
+          Find easy, healthy and tasy recipes for breakfast, lunch, dinner and
+          more, Cook something amazing today!
+        </p> -->
+
+        <div class="recepie-card-container">
+          <div>
+            <span>Prep Time</span>
+            <span id="jrs-pt">15 min</span>
+          </div>
+          <div>
+            <span>Cook Time</span>
+            <span id="jrs-ct">30 min</span>
+          </div>
+          <div>
+            <span>Serving</span>
+            <span id="jrs-s">4</span>
+          </div>
+          <div>
+            <span>Difficulty</span>
+            <span id="jrs-d">Easy</span>
+          </div>
+          <div>
+            <span>Calories Per Serving</span>
+            <span id="jrs-c">520 Kcal</span>
+          </div>
+        </div>
+
+        <div class="extra-info">
+          <div>
+            <span>Ingredients:</span>
+            <ul class="ingr">
+              <li id="jrs-i-one">Ingredient 1</li>
+              <li id="jrs-i-two">Ingredient 2</li>
+              <li id="jrs-i-three">Ingredient 3</li>
+              <li id="jrs-i-four">Ingredient 4</li>
+              <li id="jrs-i-five">Ingredient 5</li>
+              <li id="jrs-i-six">Ingredient 6</li>
+              <li id="jrs-i-seven">Ingredient 7</li>
+              <li id="jrs-i-eight">Ingredient 8</li>
+              <li id="jrs-i-nine">Ingredient 9</li>
+              <li id="jrs-i-ten">Ingredient 10</li>
+              <li id="jrs-i-eleven">Ingredient 11</li>
+            </ul>
+          </div>
+          <div>
+            <span>Instructions:</span>
+            <!-- <ul> -->
+              <li id="jrs-ins-one">Step 1</li>
+              <li id="jrs-ins-two">Step 2</li>
+              <li id="jrs-ins-three">Step 3</li>
+              <li id="jrs-ins-four">Step 4</li>
+              <li id="jrs-ins-five">Step 5</li>
+              <li id="jrs-ins-six">Step 6</li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="popular-recipes" class="content">
+      <div class="content-header">
+        <span>Popular Recipes</span>
+        <a href="#">View All <i class="fa-solid fa-arrow-right-long"></i></a>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <span class="popularOneTag">Italian</span>
+          <img src="" alt="" id="popularOneImage" />
+          <div class="gen-info">
+            <h2 id="popularOneName">Spaghetti Carbonara</h2>
+            <span class="th popularOneTag">cos</span>
+            <div class="info">
+              <div>
+                <i data-lucide="clock"></i>
+                <span id="popularOneTime">20 mins</span>
+              </div>
+              <div>
+                <i data-lucide="chart-no-axes-column"></i>
+                <span id="popularOneDifficulty">Medium</span>
+              </div>
+              <div>
+                <i data-lucide="flame"></i>
+                <span id="popularOneCalories">520 kacl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="popularTwoTag">Italian</span>
+          <img src="" alt="" id="popularTwoImage" />
+          <div class="gen-info">
+            <h2 id="popularTwoName">Spaghetti Carbonara</h2>
+            <span class="th popularTwoTag">Italian</span>
+            <div class="info">
+              <div>
+                <i data-lucide="clock"></i>
+                <span id="popularTwoTime">20 mins</span>
+              </div>
+              <div>
+                <i data-lucide="chart-no-axes-column"></i>
+                <span id="popularTwoDifficulty">Medium</span>
+              </div>
+              <div>
+                <i data-lucide="flame"></i>
+                <span id="popularTwoCalories">520 kacl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="popularThreeTag">Italian</span>
+          <img src="" alt="" id="popularThreeImage" />
+          <div class="gen-info">
+            <h2 id="popularThreeName">Spaghetti Carbonara</h2>
+            <span class="th popularThreeTag">Italian</span>
+            <div class="info">
+              <div>
+                <i data-lucide="clock"></i>
+                <span id="popularThreeTime">20 mins</span>
+              </div>
+              <div>
+                <i data-lucide="chart-no-axes-column"></i>
+                <span id="popularThreeDifficulty">Medium</span>
+              </div>
+              <div>
+                <i data-lucide="flame"></i>
+                <span id="popularThreeCalories">520 kacl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="popularFourTag">Italian</span>
+          <img src="" alt="" id="popularFourImage" />
+          <div class="gen-info">
+            <h2 id="popularFourName">Spaghetti Carbonara</h2>
+            <span class="th popularFourTag">Italian</span>
+            <div class="info">
+              <div>
+                <i data-lucide="clock"></i>
+                <span id="popularFourTime">20 mins</span>
+              </div>
+              <div>
+                <i data-lucide="chart-no-axes-column"></i>
+                <span id="popularFourDifficulty">Medium</span>
+              </div>
+              <div>
+                <i data-lucide="flame"></i>
+                <span id="popularFourCalories">520 kacl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="top">
+        <div class="footer-logo-area">
+          <div><img src="images/icon.png" alt="" /> <span>Foodie</span></div>
+          <p>Delicious recipes for every moment. Cook, share, and enjoy.</p>
+          <div class="social-icons">
+            <span><i class="fa-brands fa-instagram"></i></span>
+            <span><i class="fa-brands fa-x-twitter"></i></span>
+            <span><i class="fa-brands fa-facebook"></i></span>
+            <span><i class="fa-brands fa-youtube"></i></span>
+          </div>
+        </div>
+        <div class="foot-links">
+          <span>Quick Links</span>
+          <ul>
+            <li>Home</li>
+            <li>Recipes</li>
+            <li>Categories</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="foot-links fltwo">
+          <span>Popular Categories</span>
+          <ul>
+            <li>Pasta</li>
+            <li>Chicken</li>
+            <li>Beef</li>
+            <li>Vegetarian</li>
+            <li>Seafoods</li>
+            <li>Desserts</li>
+          </ul>
+        </div>
+        <div class="newsletter">
+          <span>Newsletter</span>
+          <p>Get fresh recipes, cooking tips and more, stright to you inbox</p>
+          <form>
+            <span>
+              <p><i class="fa-regular fa-envelope"></i></p>
+              <input type="email" placeholder="Enter your email address" />
+              <button>Subscribe</button>
+            </span>
+          </form>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>&copy; 2026 TastyNest. All rights reserved</span>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+          <li>Cookies</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+
+  <script src="script-jrs.js" defer></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</html>

@@ -264,7 +264,80 @@ async function GetRecpipe() {
       data.recipes[16].difficulty;
     document.getElementById("healthyFourCalories").textContent =
       `${data.recipes[16].caloriesPerServing} kacl`;
-  } catch (err) {
+  
+  
+  
+      // Classic Margerita Pizza
+      document.getElementById("cmp-pt").textContent = `${data.recipes[0].prepTimeMinutes} min`;
+      document.getElementById("cmp-ct").textContent = `${data.recipes[0].cookTimeMinutes} min`;
+      document.getElementById("cmp-s").textContent = `${data.recipes[0].servings}`;
+      document.getElementById("cmp-d").textContent = "HArd";
+      document.getElementById("cmp-c").textContent = `${data.recipes[0].caloriesPerServing} Kcal`;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    } catch (err) {
     console.log(err);
   }
 }
@@ -292,5 +365,26 @@ function showContainers(tag) {
     popularContainer.style.display = "none";
     quickandeasyContainer.style.display = "none";
     healthyContainer.style.display = "grid";
+  }
+}
+
+let themeNo = 0;
+function changetheme() {
+  themeNo++;
+  if (themeNo > 1) {
+    themeNo = 0;
+  }
+  changeatheme();
+}
+
+function changeatheme() {
+  if (themeNo == 1) {
+    // document.body.classList.add("light-theme");
+    document.body.setAttribute("data-theme", "light");
+    console.log("Theme Changed");
+  } else if (themeNo == 0) {
+    // document.body.classList.remove("light-theme");
+    document.body.removeAttribute("data-theme", "light");
+    console.log("Theme Changed to DARK");
   }
 }

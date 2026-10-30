@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caprese Salad | TastyNest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">TastyNest</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <button type="button" onclick="changetheme()" aria-label="Change theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Recipe Hero -->
+        <section class="hero receipe-hero">
+            <div class="left-area">
+                <p class="recipe-category">Italian Cuisine</p>
+
+                <h1 id="cas-n">Caprese Salad</h1>
+
+                <p>
+                    A fresh Italian salad made with juicy tomatoes,
+                    creamy mozzarella, fresh basil and a delicious
+                    drizzle of olive oil.
+                </p>
+
+                <div class="recipe-details">
+                    <div>
+                        <span>Prep Time</span>
+                        <p id="cas-pt">10 min</p>
+                    </div>
+
+                    <div>
+                        <span>Cook Time</span>
+                        <p id="cas-ct">0 min</p>
+                    </div>
+
+                    <div>
+                        <span>Servings</span>
+                        <p id="cas-s">2</p>
+                    </div>
+
+                    <div>
+                        <span>Difficulty</span>
+                        <p id="cas-d">Easy</p>
+                    </div>
+
+                    <div>
+                        <span>Calories</span>
+                        <p id="cas-c">200 Kcal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-area">
+                <img
+                    id="cas-image"
+                    src="https://cdn.dummyjson.com/recipe-images/9.webp"
+                    alt="Caprese Salad"
+                >
+            </div>
+        </section>
+
+        <!-- Ingredients and Instructions -->
+        <section class="recipe-content">
+            <div class="ingredients">
+                <h2>Ingredients</h2>
+
+                <ul>
+                    <li id="cas-i-one">Tomatoes, sliced</li>
+                    <li id="cas-i-two">Fresh mozzarella cheese, sliced</li>
+                    <li id="cas-i-three">Fresh basil leaves</li>
+                    <li id="cas-i-four">Balsamic glaze</li>
+                    <li id="cas-i-five">Extra virgin olive oil</li>
+                    <li id="cas-i-six">Salt and pepper to taste</li>
+                </ul>
+            </div>
+
+            <div class="instructions">
+                <h2>Instructions</h2>
+
+                <ol>
+                    <li id="cas-ins-one">
+                        Arrange alternating slices of tomatoes and
+                        fresh mozzarella on a serving platter.
+                    </li>
+                    <li id="cas-ins-two">
+                        Tuck fresh basil leaves between the slices.
+                    </li>
+                    <li id="cas-ins-three">
+                        Drizzle with balsamic glaze and extra virgin olive oil.
+                    </li>
+                    <li id="cas-ins-four">
+                        Season with salt and pepper to taste.
+                    </li>
+                    <li id="cas-ins-five">
+                        Serve immediately as a refreshing salad.
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Popular Recipes -->
+        <section id="popular-recipes">
+            <div class="section-heading">
+                <h2>Popular Recipes</h2>
+                <a href="recipes.html">View All &rarr;</a>
+            </div>
+
+            <div class="popular-container">
+                <a href="cap.html" class="popular-card">
+                    <img id="popularOneImage" src="" alt="">
+                    <span class="popularOneTag"></span>
+                    <h3 id="popularOneName"></h3>
+                    <p id="popularOneTime"></p>
+                    <p id="popularOneDifficulty"></p>
+                    <p id="popularOneCalories"></p>
+                </a>
+
+                <a href="bbs.html" class="popular-card">
+                    <img id="popularTwoImage" src="" alt="">
+                    <span class="popularTwoTag"></span>
+                    <h3 id="popularTwoName"></h3>
+                    <p id="popularTwoTime"></p>
+                    <p id="popularTwoDifficulty"></p>
+                    <p id="popularTwoCalories"></p>
+                </a>
+
+                <a href="cas.html" class="popular-card">
+                    <img id="popularThreeImage" src="" alt="">
+                    <span class="popularThreeTag"></span>
+                    <h3 id="popularThreeName"></h3>
+                    <p id="popularThreeTime"></p>
+                    <p id="popularThreeDifficulty"></p>
+                    <p id="popularThreeCalories"></p>
+                </a>
+
+                <a href="cas.html" class="popular-card">
+                    <img id="popularFourImage" src="" alt="">
+                    <span class="popularFourTag"></span>
+                    <h3 id="popularFourName"></h3>
+                    <p id="popularFourTime"></p>
+                    <p id="popularFourDifficulty"></p>
+                    <p id="popularFourCalories"></p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TastyNest. All rights reserved.</p>
+    </footer>
+
+    <script src="script-cas.js"></script>
+</body>
+</html>
